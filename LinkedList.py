@@ -1,10 +1,6 @@
-from os import link
-from tokenize import String
-
-
 class Node:
 
-    def __init__(self, val) -> None:
+    def __init__(self, val:str) -> None:
         self.value = val
         self.next = None
 
@@ -13,7 +9,6 @@ class LinkedList:
     def __init__(self) -> None:
         self.head = None
 
-
     def AddNode(self, node: Node):
         if self.head is None:
             self.head = node
@@ -21,21 +16,19 @@ class LinkedList:
         self.head.next = node
         self.head = node
     
-    
     def PrintNodes(self, head: Node):
         if head is None:
             return
-        
-        while head is not None:
-            print(head.value)
-            head = head.next
 
+        print(head.value)
+        self.PrintNodes(head.next)
     
     def Reverse(self, head: Node):
         if head is None:
             return head
 
         dummy: Node = None
+
         while head is not None:
             next = head.next
             head.next = dummy
@@ -44,7 +37,7 @@ class LinkedList:
         
         return dummy
 
-    def AddAfter(self, head: Node, valAfter: String, valToAddAfter: String):
+    def AddAfter(self, head: Node, valAfter: str, valToAddAfter: str):
         if head is None:
             return head
 
@@ -59,7 +52,7 @@ class LinkedList:
 
             head = head.next
         
-    def AddBefore(self, head: Node, valBefore: String, valToAddBefore: String) -> Node:
+    def AddBefore(self, head: Node, valBefore: str, valToAddBefore: str) -> Node:
         if head is None:
             return head
 
@@ -76,6 +69,20 @@ class LinkedList:
 
         return head
 
+    def RemoveAt(self, head: Node, valueAt: str):
+        if head is None:
+            return head
+        
+        prev: Node = None
+        while head != None:
+            if head.value == valueAt:
+                prev.next = head.next
+                return
+
+            prev = head
+            head = head.next
+        return
+                
 
 a = Node("a")
 b = Node("b")
@@ -89,6 +96,5 @@ linkedList.AddNode(b)
 linkedList.AddNode(c)
 linkedList.AddNode(d)
 
-res = linkedList.AddBefore( head= a, valBefore= "a", valToAddBefore= "e")
-
-linkedList.PrintNodes(res)
+linkedList.RemoveAt(a, "c")
+linkedList.PrintNodes(linkedList.PrintNodes(a))
