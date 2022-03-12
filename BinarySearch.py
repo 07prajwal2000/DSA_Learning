@@ -1,6 +1,7 @@
+from turtle import right
 from typing import List
 
-numsArray: List[int]
+numsArray: List[int] = []
 
 for i in range(500):
     numsArray.append(i)
@@ -34,6 +35,33 @@ def BinarySearch(num: int, arr: List[int], sorted: bool = True) -> int:
     
     return -1
 
+def BinarySearchRecursion(num: int, arr: List[int], sorted: bool = True) -> int:
 
-res = BinarySearch(50, numsArray, True)
+    left = 0
+    right = len(arr) - 1
+
+    if sorted == False:
+            arr.sort()
+    
+    def _BinarySearchRecursion(num: int, arr: List[int], l: int, r:int) -> int:
+        mid = (int) ((l + r) / 2)
+        
+        if (arr[r] < num) or (r < l):
+            print("NOT FOUND")
+            return -1
+
+        if arr[mid] == num:
+            return mid
+        
+        if arr[mid] < num:
+            return _BinarySearchRecursion(num, arr, mid + 1, r)
+        
+        if arr[mid] > num:
+            return _BinarySearchRecursion(num, arr, l, mid - 1, )
+        
+        return -1
+    
+    return _BinarySearchRecursion(num, arr, left, right)
+
+res = BinarySearchRecursion(50, numsArray)
 print(res)
