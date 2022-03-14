@@ -63,5 +63,5 @@ def BinarySearchRecursion(num: int, arr: List[int], sorted: bool = True) -> int:
     
     return _BinarySearchRecursion(num, arr, left, right)
 
-res = BinarySearchRecursion(50, numsArray)
+res = BinarySearchRecursion(25, numsArray)
 print(res)
