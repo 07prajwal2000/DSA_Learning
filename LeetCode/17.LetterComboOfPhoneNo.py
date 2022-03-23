@@ -22,5 +22,5 @@ def LetterComboOfPhoneNo(digits: str):
     return arr
 
 print(LetterComboOfPhoneNo("23"))
-# print(LetterComboOfPhoneNo(""))
-# print(LetterComboOfPhoneNo("2"))
+print(LetterComboOfPhoneNo(""))
+print(LetterComboOfPhoneNo("2"))
