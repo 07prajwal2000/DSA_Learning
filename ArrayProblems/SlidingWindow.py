@@ -33,16 +33,16 @@ class AvgSumSubArray:
 
 
 
-
-
 # TESTS #
 def TestAvgSumSubArray():
     array = [1, 2, 3, 4, 5]
 
     # for i in range(6, 1000000): # 1 Million Iter's
     #     array.append(i)
+    # print("Filling List < COMPLETEED >")
     
-    print("Filling List < COMPLETEED >")
     avgSum = AvgSumSubArray()
     res = avgSum.Optimized(array, 3)
     print(res)
+
+TestAvgSumSubArray()

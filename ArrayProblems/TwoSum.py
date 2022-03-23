@@ -1,19 +1,31 @@
 from typing import List
 
-def TwoSum(targetSum: int, array: List[int]):
+def TwoSum(target: int, nums: List[int]):
     foundElements = {}
-    for i, num in enumerate(array):
-        diff = targetSum - num
+    for i, num in enumerate(nums):
+        diff = target - num
         if diff in foundElements:
-            return [foundElements[targetSum - num], i]
+            return [foundElements[target - num], i]
         
         foundElements[num] = i
 
     return
 
-arr = [2,7,11,15]
+array = [2, 3, 5, 6, 7, 11, 15, 16, 12]
 
-for i in range(1000000):
-    arr.append(i)
+# for i in range(1000000):
+#     arr.append(i)
 
-print(TwoSum(665878, arr))
+
+def Test(target, nums: List[int]):
+    hashMap = {}
+    i = 0
+    for num in nums:
+        difference = target - num
+        if difference in hashMap:
+            return [i, hashMap[difference]]
+        hashMap[num] = i
+        i += 1
+    return
+
+print(Test(6, [3, 2, 4]))

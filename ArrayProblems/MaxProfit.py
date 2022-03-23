@@ -15,4 +15,5 @@ def CalculateProfit(prices: List[int]):
     
     return max_profit
 
+
 print(CalculateProfit(array))
