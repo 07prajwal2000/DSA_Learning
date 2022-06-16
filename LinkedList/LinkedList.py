@@ -72,16 +72,18 @@ class LinkedList:
     def RemoveAt(self, head: Node, valueAt: str):
         if head is None:
             return head
-        if head.next is None:
-            return head.next
-        
-        prev: Node = head
-        while head != None:
-            if head.value == valueAt:
-                head.value =  head.next.value
-                head.next = head.next.next
-                return
-            head = head.next
+        dummy = Node('t')
+        dummy.next = head
+        prev, curr = dummy, head
+
+        while curr:
+            nextNode = curr.next
+            if curr.value == valueAt:
+                prev.next = nextNode
+            else:
+                prev = curr
+            curr = curr.next
+        return dummy.next
 
 
 
