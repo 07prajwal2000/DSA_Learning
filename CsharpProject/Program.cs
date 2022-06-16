@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-
+﻿
 int MaxProfit(int[] prices) {
     var maxProfit = 0;
     var buyPrice = int.MaxValue;

@@ -22,8 +22,8 @@ def BubbleSort(arr: List[int]):
     return arr
 
 
-# array = [8, 3, 6, 4, 5]
-array = ['manu', 'prajwal', 'aradhya']
+array = [8, 3, 6, 4, 5]
+# array = ['manu', 'prajwal', 'aradhya']
 
 # for i in range(20):
 #     array.append(random.randint(0, 100))

@@ -27,15 +27,15 @@ class LinkedList:
         if head is None:
             return head
 
-        dummy: Node = None
-
-        while head is not None:
-            next = head.next
-            head.next = dummy
-            dummy = head
-            head = next
+        prev: Node = None
+        cur: Node = head
+        while cur:
+            temp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = temp
         
-        return dummy
+        return prev
 
     def AddAfter(self, head: Node, valAfter: str, valToAddAfter: str):
         if head is None:
@@ -72,21 +72,23 @@ class LinkedList:
     def RemoveAt(self, head: Node, valueAt: str):
         if head is None:
             return head
+        if head.next is None:
+            return head.next
         
-        prev: Node = None
+        prev: Node = head
         while head != None:
             if head.value == valueAt:
-                prev.next = head.next
+                head.value =  head.next.value
+                head.next = head.next.next
                 return
-
-            prev = head
             head = head.next
-        return
-                
+
+
 
 a = Node("a")
 b = Node("b")
 c = Node("c")
+d = Node("d")
 d = Node("d")
 
 linkedList = LinkedList()
@@ -96,5 +98,7 @@ linkedList.AddNode(b)
 linkedList.AddNode(c)
 linkedList.AddNode(d)
 
-linkedList.RemoveAt(a, "c")
-linkedList.PrintNodes(linkedList.PrintNodes(a))
+# e = linkedList.AddBefore(a, "a", 'e')
+# rev = linkedList.Reverse(a)
+linkedList.RemoveAt(a, 'd')
+linkedList.PrintNodes(a)
